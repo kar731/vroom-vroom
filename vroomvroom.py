@@ -3,6 +3,7 @@ if False:
     import pygame._view
 import time
 import random
+import sys
 
 pygame.init()
 
@@ -39,7 +40,7 @@ button_pressed = pygame.image.load("resources/img/button_pressed.png")
 pygame.display.set_icon(icon)
 
 
-randomSong = random.randint(1,4)
+randomSong = random.randint(1,3)
 if randomSong == 1:
 	randomSong = "resources/snd/leftrightexcluded.wav"
 if randomSong == 2:
@@ -54,7 +55,7 @@ pygame.mixer.music.load(randomSong)
 car_width = 44
 
 def things_dodged(count):
-	font = pygame.font.SysFont(None, 25)
+	font = pygame.font.SysFont("comicsansms", 25)
 	text = font.render("Dodged: " + str(count), True, black)
 	gameDisplay.blit(text, (0,0))
 	
@@ -82,7 +83,7 @@ def message_display(text):
 
 def quitGame():
 	pygame.quit()
-	quit()
+	sys.exit()
 
 def buttonImg(msg,x,y,w,h,inb4,aftr,action):
 	"""turns long code into function"""
@@ -129,7 +130,7 @@ def crash():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
-				quit()
+				sys.exit()
                 
         #gameDisplay.fill(white)
         
@@ -152,7 +153,7 @@ def paused():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
-				quit()
+				sys.exit()
 	
 		#gameDisplay.blit(wallpaper, (0,0))
 		
@@ -176,7 +177,7 @@ def game_intro():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
-				quit()
+				sys.exit()
 	
 		gameDisplay.blit(wallpaper, (0,0))
 		
@@ -225,7 +226,7 @@ def game_loop():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:#the x button
 				pygame.quit()
-				quit()
+				sys.exit()
 				
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_ESCAPE:
@@ -305,4 +306,4 @@ def game_loop():
 game_intro()
 game_loop()
 pygame.quit()
-quit()
+sys.exit()
