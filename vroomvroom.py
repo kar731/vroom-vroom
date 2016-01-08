@@ -131,6 +131,11 @@ def crash():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_SPACE:
+					game_loop()
+				if event.key == pygame.K_RETURN:
+					game_loop()			
                 
         #gameDisplay.fill(white)
         
@@ -178,6 +183,11 @@ def game_intro():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_SPACE:
+					game_loop()
+				if event.key == pygame.K_RETURN:
+					game_loop()
 	
 		gameDisplay.blit(wallpaper, (0,0))
 		
@@ -284,15 +294,15 @@ def game_loop():
 			
 			
 		if x < -car_width:
-			x = display_width - car_width
+			crash()
 		if x > display_width:
-			x = 0
+			crash()
 		
 		if y < thing_starty + thing_height:
 			#print("y crossing")
 			
 			if x > thing_startx and x < thing_startx + thing_width or  x + car_width > thing_startx and x + car_width < thing_startx + thing_width:
-				print("x crossing")
+				#print("x crossing")
 				crash()
 		if y < thing_secondary + thing_height:
 			#print("y crossing")
