@@ -1,4 +1,4 @@
 # vroom-vroom
-Taking games to the next level. VROOOOOOOOM
+Dodge the rocks!
 
-Yee
+If you run the .exe make sure the resources folder is in the same directory.
