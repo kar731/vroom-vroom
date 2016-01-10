@@ -159,7 +159,15 @@ def paused():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				sys.exit()
-	
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_SPACE:
+					unpause()
+				if event.key == pygame.K_RETURN:
+					unpause()
+				if event.key == pygame.K_ESCAPE:
+					unpause()
+
+					
 		#gameDisplay.blit(wallpaper, (0,0))
 		
 		TextSurf, TextRect = text_objects("Paused", largeText)
@@ -293,9 +301,9 @@ def game_loop():
 			thing_secondary_speed += 0.3
 			
 			
-		if x < -car_width:
+		if x < -car_width + (car_width/2):
 			crash()
-		if x > display_width:
+		if x > display_width or x+(car_width/2) > display_width:
 			crash()
 		
 		if y < thing_starty + thing_height:
